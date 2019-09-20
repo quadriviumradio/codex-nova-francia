@@ -1,0 +1,15 @@
+h1, p {
+  font-family: Lato;
+}
+
+.novafrancia {
+  list-style-image: url('https://s3-eu-west-1.amazonaws.com/quadrivium-fondation/img/nf.png');
+}
+
+span.novafrancia{
+  display: none;
+}
+
+button#grammairealgonquine{
+  display: none;
+}

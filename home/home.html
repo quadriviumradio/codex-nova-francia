@@ -1,0 +1,17 @@
+
+<h1>Codex Canadensis</h1>
+Voici la liste des  {{$ctrl.personnagesnf.length}} personnages :<br><br>
+
+<label>Recherche : <input ng-model="motcle"></label><br><br>
+<ul>
+<li ng-repeat="personnage in $ctrl.personnagesnf | orderBy:'nom' | filter:motcle" ng-class="{novafrancia: personnage.naissance < 1800}">
+  <a ui-sref="perso({param : personnage.id})">{{personnage.prenom}} {{personnage.nom | majuscule}}</a> <b ng-show="personnage.pseudo">({{personnage.pseudo}})</b><br>
+  <span ng-class="{novafrancia: personnage.debutnf < 1800}">Arrive en : {{personnage.debutnf}}<br></span>
+  {{personnage.statut[0]}}<br>
+  <!----<span ng-show="personnage.debutnf">Temps passé en Nouvelle-France : {{$ctrl.calculDuree(personnage.debutnf, personnage.finnf)}} ans ----->
+  <br><br></li>
+</ul>
+<comp-perso></comp-perso>
+
+
+

@@ -1,0 +1,29 @@
+<h1>Détails du personnage :</h1>
+
+<!------ Id : {{($ctrl.personnagesnf | filter:{id:$stateParams.param})[0].id}}<br>
+Id state params : {{$stateParams.param}}<br>
+------->
+{{($ctrl.personnagesnf | filter:{id:$stateParams.param})[0].prenom}} {{($ctrl.personnagesnf | filter:{id:$stateParams.param})[0].nom}}
+<b><span ng-show="($ctrl.personnagesnf | filter:{id:$stateParams.param})[0].pseudo != null"><br>{{($ctrl.personnagesnf | filter:{id:$stateParams.param})[0].pseudo}}</span></b>
+<br><span ng-repeat="statut in ($ctrl.personnagesnf | filter:{id:$stateParams.param})[0].statut">{{statut}} </span>
+<br>----------------
+<br>Naissance : 
+{{($ctrl.personnagesnf | filter:{id:$stateParams.param})[0].naissance}}
+<span ng-show="($ctrl.personnagesnf | filter:{id:$stateParams.param})[0].deces != null"><br>Décès : 
+{{($ctrl.personnagesnf | filter:{id:$stateParams.param})[0].deces}}</span>
+<br>----------------
+<ul>Bio sommaire :
+  <li ng-repeat="phrase in ($ctrl.personnagesnf | filter:{id:$stateParams.param})[0].bioSom">
+        {{phrase.action}}
+        <span ng-repeat="cod in phrase.objet">
+          <span ng-show="$index != 0"> et </span>
+          <span ng-show="phrase.idExt == null">{{cod}}</span>
+          <a ng-click="$ctrl.tabPerso.push(cod)" ng-show="phrase.idExt != null" href="">{{cod}}</a>
+           <span id="{{cod | nospace}}"><button ng-click="$ctrl.persoAjoute(cod)" ng-class="{}">+</button></span>
+        </span>
+  </li>
+<br>
+</ul>
+<comp-perso></comp-perso>
+
+<a ui-sref="home">Accueil</a>

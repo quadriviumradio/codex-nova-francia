@@ -1,0 +1,10 @@
+{
+  "name": "angularjs-vqlcu3",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@uirouter/angularjs": "1.0.15",
+    "angular": "^1.7.5",
+    "jquery": "^3.3.1"
+  }
+}
